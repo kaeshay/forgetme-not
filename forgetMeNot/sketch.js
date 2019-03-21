@@ -3,19 +3,38 @@ let clouds = [];
 let hands = [];
 let signs = [];
 let worms = [];
-let SCENE_W = 1500;
+let SCENE_W = 3500;
 let SCENE_H = 2400;
 let listener;
 let arrow;
+let grass;
 
 function preload() {
 	sun = new Sun();
 	for (var i = 0; i < 7; i++) {
-		clouds[i] = new Cloud();
+		if (i<2){
+		clouds[i] = new Cloud("cloud1", 397,256,4);
+		}
+		if (i<4 && i>=2){
+		clouds[i] = new Cloud("cloud2",236,150,4);
+		}
+		if (i<7 && i>=4){
+		clouds[i] = new Cloud("cloud3", 225,120,4);
+		}
 	}
-	for (var j = 0; j < 10; j++) {
-		hands[j] = new Hand();
-	}
+		hands[0] = new Hand("hand0", 123,220.5,23);//2
+		hands[1] = new Hand("hand1", 96.5,195.5,48);
+		hands[2] = new Hand("hand2",170.5,156.5,39);//1.4
+		hands[3] = new Hand("hand3",178.5,196,38);
+		hands[4] = new Hand("hand4",139,191.2,39);
+		hands[5] = new Hand("hand5",127.5,223,40);
+		hands[6] = new Hand("hand6",122.5,187.5,40);
+		hands[7] = new Hand("hand7",152.5,174.5,15);
+		hands[8] = new Hand("hand8",153.5,202.5,23);
+		hands[9] = new Hand("hand9",169,224.5,29);
+		hands[10] = new Hand("hand10",108,191,20);
+		hands[11] = new Hand("hand11",115.5,171.5,30);
+
 	for (var k = 0; k < 10; k++) {
 		signs[k] = new Sign();
 	}
@@ -25,10 +44,11 @@ function preload() {
 }
 
 function setup() {
+	// frameRate(45);
 	createCanvas(windowWidth, windowHeight);
 	sun.load(500, height / 6);
-	arrow = loadImage('/assets/ARROW.png');
-
+	arrow = loadImage('/assets/arrow.png');
+	// grass = createImg("assets/grass.gif");
 	for (var i = 0; i < clouds.length; i++) {
 		clouds[i].load(random(width), random(0, height));
 	}
@@ -50,15 +70,15 @@ function draw() {
 	background(255);
 	drawSprites();
 	image(arrow, width/2-25, height-105, 50, 70); // for now
+	image(arrow, width/2-25, height*2-105, 50, 70); // for now
 
 	if(mouseIsPressed){
 		console.log("mouse clicked x " + mouseX + " y " + mouseY);
 	}
 
- 	for (var j = 0; j < hands.length; j++) {
-		hands[j].update(camera.mouseX, camera.mouseY, listener);
+	for (var j = 0; j < hands.length; j++) {
+			hands[j].startAnimation();
 	}
-
 	camera.position.y = listener.position.y; 
 
 
@@ -72,11 +92,15 @@ function draw() {
 		listener.velocity.y = 0;
 		//listener.velocity.x = 0;
 		camera.position.x = listener.position.x;
-
+		//hands animate
+		for (var j = 0; j < hands.length; j++) {
+			hands[j].startAnimation();
+		}
 		//CLOUDS SUN and WORMS tracking hand movement
 		sun.update(camera.mouseX, width);
 		for (let i = 0; i < clouds.length; i++){
 			clouds[i].update(camera.mouseX, width);
+			clouds[i].stopAnimation();
 		}
 		for (let i = 0; i < worms.length; i++){
 			worms[i].update(camera.mouseX, width);
@@ -96,6 +120,9 @@ function draw() {
 	} else {
 		listener.velocity.y = (camera.mouseY - listener.position.y) / 20;
 		camera.zoom = 1;
+		for (var j = 0; j < hands.length; j++) {
+			hands[j].stopAnimation();
+		}
 	}
 
 	//limit listener movements

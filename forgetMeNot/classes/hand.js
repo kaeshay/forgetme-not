@@ -1,9 +1,10 @@
-function Hand() {
-	let hand = new Thing("hand", 216, 288, 5);
+function Hand(name, w, h, f) {
+	let hand = new Thing(name, w, h, f);
 	let mouseClick = 0;
 
 	this.load = function(x, y) {
 		this.sprite = hand.load(x, y);
+		this.sprite.scale = 2;
 	}
 
 	this.update = function(x, y, listener, shouldScroll) {
@@ -34,6 +35,6 @@ function Hand() {
 	}
 
 	this.startAnimation = function() {
-		this.sprite.addAnimation("animate", hand.animation);
+		this.sprite.changeAnimation("animate");
 	}
 }

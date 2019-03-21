@@ -1,6 +1,5 @@
 function Sun() {
-
-	var sun = new Thing("sun", 216, 288, 5);
+	var sun = new Thing("sun", 300, 300, 1);
 	let deltaX = 0;
 		
 	this.load = function(x,y){
