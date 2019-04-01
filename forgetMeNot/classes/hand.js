@@ -1,7 +1,11 @@
 let clickedHand;
 
-function Hand(name, w, h, f) {
+function Hand(name, w, h, f, title, producer, synopsis, id) {
 	let hand = new Thing(name, w, h, f);
+	hand.title = title;
+	hand.producer = producer;
+	hand.synopsis = synopsis;
+	hand.id = id;
 
 	this.load = function(x, y) {
 		this.sprite = hand.load(x, y);
@@ -31,12 +35,14 @@ function Hand(name, w, h, f) {
 		if (this.sprite.overlapPoint(cameraMouseX, cameraMouseY)) {
 				if (handClicked == 0){
 					handClicked = 1;
-					console.log("clicked inside hand");
+					setStory(hand.title, hand.producer, hand.synopsis, hand.id);
+					toggleStory(true);
 					clickedHand = this.sprite;
 				} 	
 			} else if (this.sprite.overlap(listener)){
+				console.log('mouse event!', listener);
 				handClicked = 0;
-				console.log("clicked outside hand")
+				toggleStory(false);
 			} else {
 				this.sprite.scale = 2.5;
 			}

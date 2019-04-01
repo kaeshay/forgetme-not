@@ -1,0 +1,138 @@
+.dear-reader, .garden, .colophon {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100vh;
+    opacity: 1;
+    transition: all 0.5s ease;
+    font-family: 'Libre Baskerville', serif;
+}
+
+.dear-reader--inactive, .garden--inactive, .colophon--inactive {
+    opacity: 0;
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+.dear-reader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dear-reader__wrapper {
+    max-width: 50vw;
+}
+
+.garden {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.garden__window {
+    background: rgb(204, 196, 122);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 0 10vh;
+    padding: 20px 40px 20px 46px;
+    border: 7px dotted rgb(168, 144, 38);
+    transform: translateY(0);
+    width: 18vw;
+    text-align: center;
+    opacity: 1;
+    transition: all 0.2s ease;
+}
+
+.garden__window--inactive {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.2s ease;
+}
+
+.window__bar {
+    width: 100%;
+    height: 2px;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0 20px 0;
+}
+
+.window__player {
+    width: 30px;
+    height: 30px;
+    background: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.window__player img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+}
+
+.colophon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.452);
+}
+
+.colophon__body {
+    display: flex;
+    align-items: flex-start;
+}
+
+.colophon__body > div {
+    margin: 0 20px;
+    max-width: 30vw;
+}
+
+.colophon__header, .colophon__subheader, .colophon__paragraph {
+    color: #fff;
+}
+
+@media only screen and (max-width: 768px) {
+    .dear-reader__wrapper {
+        max-width: 90vw;
+        max-height: 80vh;
+        overflow: scroll;
+    }
+    
+    .garden {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    .garden__window {
+        max-height: 40vh;
+        width: 60vw;
+        margin: 0 0 10vh 0;
+        padding: 10px 20px 10px 23px;
+    }
+
+    .window__synopsis {
+        overflow: scroll;
+        max-height: 20vh;
+    }
+
+    .colophon__body {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-height: 70vh;
+        overflow: scroll;
+        text-align: center;
+    }
+}

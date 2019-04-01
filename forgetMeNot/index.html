@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>forgetMeNot</title>
+    <title>Now Here This | Forget-Me-Not</title>
     <script src="libraries/p5.js" type="text/javascript"></script>
 
     <script src="libraries/p5.dom.js" type="text/javascript"></script>
@@ -17,13 +17,90 @@
     <script src="classes/worm.js" type="text/javascript"></script>
     <script src="classes/grass.js" type="text/javascript"></script>
     
-    <script src="sketch.js" type="text/javascript"></script>
-
+    <script src="script.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700" rel="stylesheet">
+    
     <style> body {padding: 0; margin: 0;} canvas {vertical-align: top;} </style>
   </head>
   <body>
+    <div class="dear-reader">
+      <div class="dear-reader__wrapper">
+        <h2 class="dear-reader__title">Dear Reader,</h2>
+        <div class="dear-reader__body">
+            <p>We’re dreaming about the coming spring. This might be the waves of Pisces season talking, but in this dream, we are sitting in a field of daisies, the dew on the grass, whispering about how we want to be remembered.</p>
+            <p>We want our tombstones to be covered in drawings of shrimp and a favorite journal entry. We want our great-grand kids to stand around it and talk about how we met our partner through a glitch on tinder. But our memories come in flashes and hazes--sometimes they look us straight in the eye, other times they shift and shimmer, and others they disappear, fading into the dirt below us.</p>
+            <p>This issue is a string tied around our fingers to mark the things we love and the ways we love them, the things we want to remember as people and as a people. It’s not about utopian visions of the past—it’s about the traces that we will carry with us. This issue is our past tapping us on the shoulder, saying, “you dropped this.”</p>
+            <p>We hope you will remember listening.</p>
+            <i>Now Here This</i>
+        </div>
+      </div>
+    </div>
+    <div class="garden garden--inactive">
+      <div class="garden__window garden__window--inactive">
+        <h2 class="window__title" id="storyTitle">Story Title</h2>
+        <i class="window__producer" id="storyProducer">Lorem ipsum</i>
+        <div class="window__bar">
+          <div class="window__player" nht-player="true" rest-lookup="528">
+            <img src="./assets/playicon.png">
+          </div>
+        </div>
+        <p class="window__synopsis" id="storySynopsis">Lorem ipsum</p>
+      </div>
+    </div>
+    <div class="colophon colophon--inactive">
+      <div class="colophon__header">
+        <h2 class="colophon__title">Colophon</h2>
+      </div>
+      <div class="colophon__body">
+        <div>
+          <h4 class="colophon__subheader">Managing Editors</h4>
+          <p class="colophon__paragraph">
+            Babette Thomas <br>
+            Alina Kulman <br>
+            Alex Hanesworth
+          </p>
+          <h4 class="colophon__subheader">Editors</h4>
+          <p class="colophon__paragraph">
+            Clare Boyle <br>
+            Justin Bai <br>
+          </p>
+        </div>
+        <div>
+          <h4 class="colophon__subheader">Producers</h4>
+          <p class="colophon__paragraph">
+            Wen Zhuang <br>
+            Liza Edwards-Levin <br>
+            Zachary Zuckerman <br>
+            Lily Willis <br>
+            Eleanor Meshnick <br>
+            Tammuz Frankel <br>
+            Olivia George <br>
+            Leela Canuelas-Puri <br>
+            Raina Wellman <br>
+            Tiara Sharma <br>
+            Anita Sheih 
+          </p>
+        </div>
+        <div>
+            <h4 class="colophon__subheader">Illustrators</h4>
+            <p class="colophon__paragraph">
+              Jeffrey Katz <br>
+              Angie Kang <br> 
+              Claribel Wu <br>
+              Lily Wright <br>
+              Alex Westfall 
+            </p>
+            <h4 class="colophon__subheader">Web Design</h4>
+            <p class="colophon__paragraph">
+              Kay Liang <br>
+              Catherine Habgood <br>
+              Henry Holtgeerts            </p>
+          </div>
+      </div>
+    </div>
     <div id="p5_loading" class="loadingclass">
-      <img src="assets/sky.jpg">
+      <img src="./assets/sky.jpg">
     </div>
   </body>
 </html>
